@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>main</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <a href="login.html">로그인</a>
+      <a href="signup.html">회원가입</a>
+    </div>
+    <hr />
+    <button onclick="showModal()">글쓰기</button>
+    <input type="text" id="category" placeholder="카테고리 추가" />
+    <button onclick="addCategory()">카테고리 추가</button>
+    <div id="modal">
+      <div id="item">
+        <button onclick="closeModal()">닫기</button>
+        <form id="form">
+          <input name="title" type="text" id="'title" placeholder="제목" />
+          <input name="content" type="text" id="content" placeholder="내용" />
+          <input name="image" type="file" />
+        </form>
+        <button onclick="submitPost()">작성하기</button>
+      </div>
+    </div>
+    <div id="postList"></div>
+  </body>
+  <script src="get.js"></script>
+  <script src="modal.js"></script>
+  <script src="category.js"></script>
+</html>
