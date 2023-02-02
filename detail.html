@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>글 디테일</title>
+  </head>
+  <body>
+    <div id="postDetail"></div>
+    <div id="updateUi">
+      <form id="form">
+        <input name="title" type="text" id="'title" placeholder="제목" />
+        <input name="content" type="text" id="content" placeholder="내용" />
+        <input name="image" type="file" />
+      </form>
+      <button onclick="changePost()">수정하기</button>
+      <button onclick="changeInput()">닫기</button>
+    </div>
+  </body>
+  <script src="detail.js"></script>
+</html>
