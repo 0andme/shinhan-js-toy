@@ -17,4 +17,5 @@ async function submitRegister() {
   };
 
   let res = await register(user);
+  location.href = "index.html";
 }
