@@ -84,6 +84,8 @@ async function changePost() {
   let form = document.getElementById("form");
   let formData = new FormData(form);
   let res = await putPost(formData);
+  alert("글이 수정되었습니다");
+  location.reload();
 }
 
 function toggleDetail() {
