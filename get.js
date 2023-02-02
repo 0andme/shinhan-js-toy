@@ -6,6 +6,10 @@ async function getPosts() {
   return data;
 }
 
+function gotoDetail(id) {
+  location.href = `detail.html?id=${id}`;
+}
+
 async function insertPostList() {
   let listEl = document.getElementById("postList");
   let posts = await getPosts();
@@ -13,11 +17,9 @@ async function insertPostList() {
   posts.forEach((post) => {
     listEl.insertAdjacentHTML(
       "beforeend",
-      `<div id="${post.id}">
+      `<div id="${post.id}" onclick="gotoDetail(${post.id})" >
         <span>카테고리 : ${post.category.name} </span><span>작성자 : ${post.author}</span>
         <h3>제목 : ${post.title}</h3>
-        <p>내용 : ${post.content}</p>
-        <img src="${post.image}">
       </div>
       <hr/>
     `
