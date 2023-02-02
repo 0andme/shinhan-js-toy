@@ -20,5 +20,6 @@ async function submitLogin() {
   console.log(res);
   if (res.access_token) {
     setCookie("access_token", res.access_token);
+    location.href = "/index.html";
   }
 }
