@@ -1,5 +1,5 @@
 const SERVER_URL = "http://127.0.0.1:8000";
-
+let nowCate = "";
 async function getPosts() {
   let res = await fetch(`${SERVER_URL}/blog/article`);
   let data = await res.json();
@@ -10,10 +10,20 @@ function gotoDetail(id) {
   location.href = `detail.html?id=${id}`;
 }
 
+function changeCate(event) {
+  if (event.target.tagName == "SPAN") {
+    nowCate = event.target.innerText;
+    insertPostList();
+  }
+}
+
 async function insertPostList() {
   let listEl = document.getElementById("postList");
   let posts = await getPosts();
-
+  if (nowCate != "") {
+    posts = posts.filter((post) => post.category.name === nowCate);
+    listEl.innerHTML = "";
+  }
   posts.forEach((post) => {
     listEl.insertAdjacentHTML(
       "beforeend",
@@ -57,5 +67,26 @@ function getCookie(name) {
   );
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+async function getCategories() {
+  let res = await fetch(`${SERVER_URL}/blog/category`);
+  let data = res.json();
+  return data;
+}
+
+async function insertCategories() {
+  let cateEL = document.getElementById("categoryList");
+  let cates = await getCategories();
+  cates.forEach((cate) => {
+    cateEL.insertAdjacentHTML(
+      "beforeend",
+      `
+          <span   value="${cate.name}" >${cate.name}</span>
+        
+      `
+    );
+  });
+}
+
+insertCategories();
 
 insertPostList();

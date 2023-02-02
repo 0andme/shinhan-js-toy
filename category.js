@@ -39,6 +39,7 @@ async function addCategory() {
 async function insertCategories() {
   let cateEL = document.getElementById("form");
   let cates = await getCategories();
+
   cates.forEach((cate) => {
     cateEL.insertAdjacentHTML(
       "beforeend",
